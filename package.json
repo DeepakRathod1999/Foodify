@@ -1,0 +1,27 @@
+{
+  "name": "foodify",
+  "version": "1.0.0",
+  "description": "this is a food ordering app",
+  
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeepakRathod1999/Foodify.git"
+  },
+  "author": "Deepak Rathod",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeepakRathod1999/Foodify/issues"
+  },
+  "homepage": "https://github.com/DeepakRathod1999/Foodify#readme",
+  "dependencies": {
+    "parcel": "^2.12.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}
