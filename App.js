@@ -1,9 +1,13 @@
 import React from 'react'
+import Nav from './components/Nav'
 
 const App = () => {
   return (
     <div>
-      <h1> Hello Foodies</h1>
+        <header><Nav/></header>
+        <main>1234</main>
+        <footer>footer</footer>
+      
     </div>
   )
 }
