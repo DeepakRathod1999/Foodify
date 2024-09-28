@@ -1,7 +1,8 @@
 import React from "react";
-import "../css/nav.css";
-import logo from "../img/logo.jpg";
-const Nav = () => {
+import  "../css/nav.css";
+import logo from "../utils/logo.jpg";
+
+export const Nav = () => {
   return (
     <div className="nav-container">
         <img  className="logo" src={logo} alt="Foodify" />
