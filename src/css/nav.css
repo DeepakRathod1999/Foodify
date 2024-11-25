@@ -5,12 +5,19 @@
     justify-content:space-between;
     height: 105px;
     padding: 2px;
+    background-color: #f0f0f0;
+
 }
 .logo{
+    margin-left: 2px;
     height: 100px;
-    width: 100px;
+    width: 100px;   
+    border-radius: 50%;
+}
+.logo:hover{
     
-   
+  margin-left: 15px ;  
+    
 }
 .navbar{
     display:flex;

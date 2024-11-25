@@ -1,0 +1,42 @@
+.res-card{
+    height:500px;
+    width: 400px;
+    padding: 2px;
+    margin: 5px;
+    border: 2px solid black;
+    box-shadow: 1px 2px 3px black;
+    font-size: 18px;
+     background-color: #f0f0f0;
+  
+        
+}
+.cardinfo{
+    height:300px;
+    width: 300px;
+    border: 2px solid black;
+    box-shadow: 1px 2px 3px black;
+}
+.res-card:hover{
+    border-radius: 5px;
+    margin-left: 10px;
+    border-color:black ; 
+}
+.cusines{
+    display: flex;
+    flex-wrap: wrap;
+    width: min-content;
+
+}
+.res-card> img{
+    margin-left: 20px;
+    padding: 2px;
+    height:200px;
+    width:350px;
+    box-shadow: 1px 2px 3px black;
+
+}
+.res-card> img:hover{
+    border-radius: 5px;
+    margin-left: 10px;
+    border-color:black ;
+}
