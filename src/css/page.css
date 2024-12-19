@@ -1,0 +1,32 @@
+/* .header{
+    display:flex;
+    background-color: #f0f0f0;
+    height:200px;
+    width:800px;
+    border-radius: 12px;
+    border-color: 2px solid black;
+    box-shadow: 10px 7px 2px #0f0f0f;
+    margin: 20px auto;
+    padding: 2px;
+}
+.img{
+    width: 200px;
+    height: 200px;
+    object-fit: fill;
+    border-radius: 50%;
+}
+.info{
+    width: 300px;
+    margin-left: 10px;
+}
+.menu{
+    display:flex;
+    background-color: #f0f0f0;
+    height:auto;
+    width:max-content;
+    border-radius: 12px;
+    border-color: 2px solid black;
+    box-shadow: 10px 7px 2px #0f0f0f;
+    margin: 20px auto;
+    padding: 2px;
+} */

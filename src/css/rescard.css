@@ -1,42 +1,38 @@
-.res-card{
-    height:500px;
-    width: 400px;
-    padding: 2px;
-    margin: 5px;
+/* .res-card{
+    height: 400px;;
+    width:auto; 
     border: 2px solid black;
     box-shadow: 1px 2px 3px black;
-    font-size: 18px;
-     background-color: #f0f0f0;
-  
-        
+    background-color: #f0f0f0;   
+    margin:2px;   
+    transition: transform .2s; 
+}   
+.span{
+    color: black;
+    font-weight: bold;
+    font-size: medium;
 }
-.cardinfo{
-    height:300px;
-    width: 300px;
-    border: 2px solid black;
-    box-shadow: 1px 2px 3px black;
+.name{
+    color: black;
+    font-weight: bold;
+    font-size:larger;
 }
+
 .res-card:hover{
-    border-radius: 5px;
-    margin-left: 10px;
+    transform: scale(1.1);
     border-color:black ; 
 }
-.cusines{
+.res-info{
     display: flex;
-    flex-wrap: wrap;
-    width: min-content;
-
+    flex-direction: column;
+    padding-left: 10px;
+    gap: 5px;
+   
+    width: 300px;
 }
-.res-card> img{
-    margin-left: 20px;
-    padding: 2px;
-    height:200px;
-    width:350px;
-    box-shadow: 1px 2px 3px black;
-
+.res-card >img{
+    height:200px ;
+    width:400px;
+    object-fit:fill; 
 }
-.res-card> img:hover{
-    border-radius: 5px;
-    margin-left: 10px;
-    border-color:black ;
-}
+ */

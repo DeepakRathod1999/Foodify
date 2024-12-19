@@ -1,11 +1,11 @@
-.nav-container{
+/* .nav-container{
     display: flex;
     border: 1px solid black;
-    box-shadow: 1px 5px 7px rgb(110, 98, 98);
+    box-shadow: 1px 5px 7px rgb(244, 244, 244);
     justify-content:space-between;
     height: 105px;
     padding: 2px;
-    background-color: #f0f0f0;
+    background-color: #343434;
 
 }
 .logo{
@@ -26,9 +26,11 @@
 }
 .navbar >li {
     list-style-type: none;
+    text-decoration: none;
+    color:#f0f0f0;
     padding:10px;
     margin: 10px;
     font-size: 24px;
 }
 
-
+ */

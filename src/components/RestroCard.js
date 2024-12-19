@@ -1,5 +1,7 @@
 import { CDNurl } from "../utils/constant";
 import rescard from '../css/rescard.css'
+import nonveg from '../utils/nonveg.jpg';
+import vegmark from '../utils/vegmark.jpg';
 
 const RestroCard = ({ resdata }) => {
   const {
@@ -13,21 +15,26 @@ const RestroCard = ({ resdata }) => {
     id,
     locality,
   } = resdata.info;
-  return (
-    <div className="res-card" >
-      <img src={CDNurl+cloudinaryImageId} />
-      <div >
-            <div><h4> {name}  {id}</h4></div>
-            <div><strong>Area:</strong>{locality}</div>
-            <div><strong>{veg?"Veg":"Non-Veg"}</strong></div>
-            <div className="cusines"><strong>cuisines:</strong>{cuisines.join(',')}</div>
-            <div><strong>Rating:</strong>{avgRating} Star </div>
-            <div><strong>Price:</strong>{costForTwo}</div>
-            <div><strong>DeliveryTime:</strong>{sla.slaString}</div>
+
+
+
+  return  (
+ 
+    <div className="m-4  p-2 h-[400px] w-64  bg-white  hover:scale-110  rounded-md ease-in duration-300">
+        <img className="h-44 w-64 object-fill rounded-lg " alt='res-logo'src={CDNurl+cloudinaryImageId} />
+                <span className="block  font-bold text-xl py-1 text-black">{name}</span>
+                <span className="flex m-2 justify-between font-semibold"><span className="bg-green-500   px-2 py-0.5  rounded-md">⭐{avgRating}</span><span className="text-orange-500">{sla.slaString}</span> </span>
+                <span className="flex m-2 justify-between font-semibold">{veg? <img className="rounded-sm h-5 w-5" src={vegmark}/>: <img className="rounded-sm h-5 w-5"  src={nonveg}/>} <span>{costForTwo}</span></span>
+                <span className="block text-slate-400  truncate">{cuisines.join(',')}</span>
+                <span className="block  font-semibold text-slate-400">{locality }</span>
+              
+              
       </div>
-      
-      
-    </div>
+    
+
+
+ 
+    
   );
 };
 export default RestroCard;

@@ -1,10 +1,14 @@
-
+import { lazy,Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import App from "../../App";
 import Home from "../components/Home";
 import About from "../components/About";
 import Contact from "../components/Contact";
-import RestaurentPage from "../components/RestaurentPage";
+import Error from "./Error";
+import Shimmer from "../components/Shimmer";
+
+const  RestaurentPage=lazy(()=>import("../components/RestaurentPage"));
+const Grocery=lazy(()=>import('../components/Grocery')); 
 
 export const allroutes=createBrowserRouter([
     {
@@ -22,12 +26,20 @@ export const allroutes=createBrowserRouter([
             },
             {
                 path:"/contact",
-                element:<Contact/>
+                element:<Contact/>  
             },
             {
-                path:`/restaurentpage`,
-                element:<RestaurentPage/>
-            }]
+                path:'/grocery',
+                element:<Suspense fallback={<Shimmer/>}><Grocery/></Suspense>
+            }
+            ,
+            {
+                path:"/restaurent/:id",
+                element:<Suspense fallback={<Shimmer/>}><RestaurentPage/></Suspense>
+            }
+            ],
+        errorElement:<Error/> 
     }
 ]);
 
+ 
