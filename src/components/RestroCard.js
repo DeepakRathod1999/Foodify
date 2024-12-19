@@ -1,7 +1,7 @@
 import { CDNurl } from "../utils/constant";
 import rescard from '../css/rescard.css'
-import nonveg from '../utils/nonveg.jpg';
-import vegmark from '../utils/vegmark.jpg';
+import nonveg from '../utils/nonveg.png';
+import vegmark from '../utils/vegmark.png';
 
 const RestroCard = ({ resdata }) => {
   const {
