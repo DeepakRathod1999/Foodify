@@ -5,7 +5,7 @@ const Shimmer = () => {
     
         return (
        
-        <div className='mt-20 '>
+        <div className='mt-40 '>
              <div className='  flex justify-center animate-pulse'>
                              <input className=' w-96 m-2 p-2 rounded-lg '/>
                </div>

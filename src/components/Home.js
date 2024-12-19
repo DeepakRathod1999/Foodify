@@ -41,7 +41,7 @@ const Home = () => {
  //return <Shimmer/>
     return listOfRestaurent.length==0?<Shimmer/>:(
        
-         <div className='font-poppins mt-28'>
+         <div className='font-poppins mt-40'>
             <div className='  flex  justify-center  p-1'>
                 <input className=' w-96 m-2 p-2 rounded-lg text-xl border border-solid border-black' placeholder='Search Restaurents' onChange={searchbar}/>
             </div>
