@@ -45,7 +45,7 @@ const RestaurentPage = () => {
   
  
   return (
-    <div className="font-serif my-28 p-5">
+    <div className="font-serif my-36 p-5">
       <div
         className=" m-auto w-4/5 p-5 rounded-lg bg-slate-200 flex justify-between"
       >
