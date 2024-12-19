@@ -24,7 +24,8 @@ const RestroCard = ({ resdata }) => {
         <img className="h-44 w-64 object-fill rounded-lg " alt='res-logo'src={CDNurl+cloudinaryImageId} />
                 <span className="block  font-bold text-xl py-1 text-black">{name}</span>
                 <span className="flex m-2 justify-between font-semibold"><span className="bg-green-500   px-2 py-0.5  rounded-md">⭐{avgRating}</span><span className="text-orange-500">{sla.slaString}</span> </span>
-                <span className="flex m-2 justify-between font-semibold">{veg? <img className="rounded-sm h-5 w-5" src={vegmark}/>: <img className="rounded-sm h-5 w-5"  src={nonveg}/>} <span>{costForTwo}</span></span>
+                {/* <span className="flex m-2 justify-between font-semibold">{veg? <img className="rounded-sm h-5 w-5" src={vegmark}/>: <img className="rounded-sm h-5 w-5"  src={nonveg}/>} <span>{costForTwo}</span></span> */}
+                <span>{costForTwo}</span>
                 <span className="block text-slate-400  truncate">{cuisines.join(',')}</span>
                 <span className="block  font-semibold text-slate-400">{locality }</span>
               
