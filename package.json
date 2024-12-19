@@ -2,6 +2,7 @@
   "name": "foodify",
   "version": "1.0.0",
   "description": "this is a food ordering app",
+  
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
