@@ -2,7 +2,6 @@
   "name": "foodify",
   "version": "1.0.0",
   "description": "this is a food ordering app",
-  
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
@@ -29,6 +28,7 @@
     "parcel": "^2.13.3",
     "postcss": "^8.4.49",
     "process": "^0.11.10",
+    "svgo": "^3.3.2",
     "tailwindcss": "^3.4.15"
   },
   "Browserslist": [
