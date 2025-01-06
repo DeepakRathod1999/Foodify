@@ -12,9 +12,9 @@ export const useFetch=(id)=>{
           const data = await fetch(pageurl+id);
           const response = await data.json();    
          setResinfo(response.data);
-         console.log(resInfo);
+        //  console.log(resInfo);
         }catch(err){
-          console.log(err.messege);
+          // console.log(err.messege);
           return null
 
          }

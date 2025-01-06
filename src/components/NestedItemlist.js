@@ -1,11 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NestedCards from './NestedCards';
 
-const NestedItemlist = ({title,nestedlist}) => {
-   const [showlist,setshowlist]=useState(false);
-   const [showcard,setShowcard]=useState(false);
+const NestedItemlist = ({vegClassifier,title,nestedlist}) => {
 
-//    console.log(nestedlist)
+   const [showcard,setShowcard]=useState(false);
+   const [Nested,setNested]=useState(nestedlist)
+
+// console.log(nestedlist)
+   useEffect(()=>{
+      demo()
+      // console.log("abc")
+   },[vegClassifier])
+  
+   const demo=()=>{
+      const abc=nestedlist
+      const data=vegClassifier=="all"?nestedlist:abc.map((list)=> 
+         list.itemCards.length!=0 && {
+            title:list.title,
+            itemCards:list.itemCards.filter((item)=>item?.card?.info?.itemAttribute?.vegClassifier.toLowerCase()===vegClassifier.toLowerCase())
+         }
+      ).filter((list) => list.itemCards.length > 0); 
+      setNested(data);
+      // console.log(Nested.length)
+   }
+        
+
 
    const handleclick=()=>{
     setShowcard(!showcard);
@@ -14,11 +33,11 @@ const NestedItemlist = ({title,nestedlist}) => {
   
     return (
        <div>
-         <span onClick={handleclick} className="border-b-2 cursor-pointer border-slate-600 h-10 m-3 p-2 flex rounded-lg font-bold text-xl bg-white justify-between"><span>{title}({nestedlist.length})</span><span> ⬇️</span></span>
+         <span onClick={handleclick} className="border-b-2 cursor-pointer border-slate-600 h-10 m-3 p-2 flex rounded-lg font-bold text-xl bg-white justify-between"><span>{title}({Nested.length})</span><span> ⬇️</span></span>
             {
-                showcard&& nestedlist.map((list)=>(
+                showcard&& Nested.map((list)=>(
                    <div  key={list.title}>
-                        { <NestedCards list={list}/> }
+                        { <NestedCards vegClassifier={vegClassifier} list={list}/> }
                     </div>
                 
                 
@@ -28,5 +47,6 @@ const NestedItemlist = ({title,nestedlist}) => {
        </div>
     )
 }
+
 
 export default NestedItemlist
