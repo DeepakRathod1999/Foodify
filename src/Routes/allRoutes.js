@@ -6,6 +6,7 @@ import About from "../components/About";
 import Contact from "../components/Contact";
 import Error from "./Error";
 import Shimmer from "../components/Shimmer";
+import CartPage from '../components/CartPage'
 
 const  RestaurentPage=lazy(()=>import("../components/RestaurentPage"));
 const Grocery=lazy(()=>import('../components/Grocery')); 
@@ -13,7 +14,7 @@ const Grocery=lazy(()=>import('../components/Grocery'));
 export const allroutes=createBrowserRouter([
     {
         path:"/",
-        element:<App/>,
+        element:<App/> ,
         children:[
             {
             path:"/",
@@ -36,6 +37,10 @@ export const allroutes=createBrowserRouter([
             {
                 path:"/restaurent/:id",
                 element:<Suspense fallback={<Shimmer/>}><RestaurentPage/></Suspense>
+            },
+            {
+                path:'/cart',
+                element:<CartPage/>
             }
             ],
         errorElement:<Error/> 

@@ -6,4 +6,8 @@ import { allroutes } from "./src/Routes/allRoutes";
 
 const root =ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<RouterProvider router={allroutes}/>);
+    
+    root.render(
+      
+        <RouterProvider router={allroutes}/>
+    );
