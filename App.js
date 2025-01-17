@@ -6,7 +6,7 @@ import appStore from './src/utils/appStore';
 const App = () => {
   return (
     <Provider store={appStore}>
-      <div className='bg-slate-800  '>
+      <div className='bg-slate-200  '>
             <Nav/>
             <Outlet/>
             <div>footer</div>

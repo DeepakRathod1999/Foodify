@@ -33,7 +33,7 @@ const NestedItemlist = ({vegClassifier,title,nestedlist}) => {
   
     return (
        <div>
-         <span onClick={handleclick} className="border-b-2 cursor-pointer border-slate-600 h-10 m-3 p-2 flex rounded-lg font-bold text-xl bg-white justify-between"><span>{title}({Nested.length})</span><span> ⬇️</span></span>
+         <span onClick={handleclick} className="border-b-2 cursor-pointer  h-10 m-3 p-2 flex rounded-lg font-bold text-xl bg-white justify-between"><span>{title}({Nested.length})</span><span> ⬇️</span></span>
             {
                 showcard&& Nested.map((list)=>(
                    <div  key={list.title}>

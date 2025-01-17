@@ -1,14 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CDNurl } from "../utils/constant";
-import {useDispatch} from 'react-redux'
-import {addItem} from '../utils/slices/cartSlice'
+import {useDispatch, useSelector} from 'react-redux'
+import {addItem, deleteSingle} from '../utils/slices/cartSlice'
 
 const Item = ({item}) => {
+  const [added,setadded]=useState(false)
   const dispatch = useDispatch()
+  
   const handleAdd=(item)=>{
-    
-    dispatch(addItem(item))
+    const data=item.card.info
+    const payload={
+      id:data.id,
+      name:data.name,
+      price:data.price,
+      category:data.category,
+      imageId:data.imageId,
+      attribute:data.itemAttribute.vegClassifier,
+      quantity:1
+    }
+    if(added){
+      setadded(false)
+      dispatch(deleteSingle(payload.id))
+    }
+    else{
+      setadded(true)
+      dispatch(addItem(payload))
+
+    }
+
+
+  
  }
+ 
 
     return (
        
@@ -43,17 +66,17 @@ const Item = ({item}) => {
                   src={CDNurl + item?.card?.info?.imageId}
                 />
               )}
-
-              <button
+                {    added? <button onClick={()=>handleAdd(item)} className={item?.card?.info?.imageId &&'bg-black text-white  rounded-lg text-right mx-[720px] my-36 px-6 py-2 absolute'}>Selected</button>:   <button
                 className={
                   item?.card?.info?.imageId
-                    ? "bg-white text-green-500 rounded-lg text-right mx-[780px] my-36 px-6 py-2 absolute"
+                    ? "bg-white text-green-500 rounded-lg text-right mx-[720px] my-36 px-6 py-2 absolute"
                     : "bg-white text-green-500 rounded-lg text-right mx-[690px] my-5 px-6 bg-opacity-0 absolute"
                 }
                 onClick={()=>handleAdd(item)}
               >
                 ADD
               </button>
+}
             </div>
     )
 }

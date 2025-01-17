@@ -22,7 +22,7 @@ const NestedCards = ({vegClassifier,list}) => {
         list?.itemCards?.length!=0 &&
         <div>
             
-            <div onClick={handler} className=' border-b-2 cursor-pointer border-slate-600 text-base font-semibold  bg-white rounded-lg h-10 m-3 p-2 flex text-left justify-between' ><span>{list?.title}({list?.itemCards?.length})</span><span>🔻</span></div>
+            <div onClick={handler} className=' border-b-2 cursor-pointer text-base font-semibold  bg-white rounded-lg h-10 m-3 p-2 flex text-left justify-between' ><span>{list?.title}({list?.itemCards?.length})</span><span>🔻</span></div>
                   {showlist && list.itemCards.map((item)=>(
                     
                         <Item key={item.card.info.id} item={item}/>

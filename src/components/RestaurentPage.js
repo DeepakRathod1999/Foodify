@@ -55,7 +55,7 @@ const RestaurentPage = () => {
   return (
     <div className="font-serif my-40 p-5">
       <div
-        className=" m-auto w-4/5 p-5 rounded-lg bg-slate-200 flex justify-between"
+        className=" m-auto w-4/5 p-5 rounded-lg bg-white flex justify-between"
       >
         <div
           className=" gap-5 flex flex-col"
@@ -81,7 +81,7 @@ const RestaurentPage = () => {
         </div>
       </div>
       <div
-        className=" bg-slate-300 flex flex-col mt-7 mx-auto rounded-lg w-4/5 items-center text-center p-5"
+        className=" bg-slate-100 flex flex-col mt-7 mx-auto rounded-lg w-4/5 items-center text-center p-5"
       >
               <span className="font-bold text-xl">MENU</span>
 
@@ -101,7 +101,7 @@ const RestaurentPage = () => {
               
         </div>
 
-        <div className="bg-slate-300  w-full m-5 p-5 ">
+        <div className="bg-slate-100  w-full m-5 p-5 ">
           {dishes==''?<ul>
 
           {ItemCategory.map((items)=>(
