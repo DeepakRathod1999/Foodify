@@ -7,6 +7,8 @@ import Contact from "../components/Contact";
 import Error from "./Error";
 import Shimmer from "../components/Shimmer";
 import CartPage from '../components/CartPage'
+import  Login from "../components/Login";
+import Register from "../components/Register";
 
 const  RestaurentPage=lazy(()=>import("../components/RestaurentPage"));
 const Grocery=lazy(()=>import('../components/Grocery')); 
@@ -19,6 +21,15 @@ export const allroutes=createBrowserRouter([
             {
             path:"/",
             element:<Home/>,
+            },
+            {
+                path:'/login',
+                element:<Login/>
+
+            },
+            {
+                path:'/register',
+                element:<Register/>
             },
             {
                 path:"/about",
