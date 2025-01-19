@@ -3,17 +3,28 @@ import {  useDispatch, useSelector } from 'react-redux'
 import Item from './Item'
 import {clearAll} from '../utils/slices/cartSlice'
 import Cart from './Cart'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 const CartPage = () => {
     const [account,setAccount]=useState();
+    const navigate=useNavigate()
+    const [subtotal,setsubtotal]=useState();
     const cartItems=useSelector(store=>store.cart.items)
     let accountDetails=useSelector(store=>store.user.accountDetails)
     const dispatch=useDispatch()
     useEffect(()=>{
          setAccount(JSON.parse(localStorage.getItem("customer")))
-    },[accountDetails])
+         cartItems.length!=0&&setsubtotal(cartItems.reduce((acc,item)=>acc+item.totalPrice,0))
+
+    },[accountDetails,cartItems])
     const handleClear=()=>{
         dispatch(clearAll())
+    }
+  
+    const handleplaceorder=()=>{
+        Swal.fire('Success!','Your Order has been placed successfully','success')
+        dispatch(clearAll())
+        navigate('/')
     }
 
     return (
@@ -23,6 +34,7 @@ const CartPage = () => {
             <div className='m-2 p-3  h-auto w-11/12    border-black   '>
                 <div className=''>
                     <div className=' my-4 flex flex-row justify-between'>
+                        <span className='text-2xl  font-extrabold'>Total Price <span className='text-orange-500'>₹{subtotal }</span></span>
                         <span onClick={()=>handleClear()} className='h-10 ml-2  w-32 text-center p-2   hover:scale-110 ease-in duration-300 items-end text-lg  text-black  hover:text-white  cursor-pointer  bg-red-600 rounded-xl '> Clear Cart</span>
                     </div>
                  <div className='flex flex-wrap   '>
@@ -60,7 +72,7 @@ const CartPage = () => {
                : 
              <span>Log In to Place your order<Link to='/login' className='text-lg ml-2 text-red-400 font-semibold'>login</Link></span>
              }
-             {accountDetails?.loggedInuser&&<button className='text-lg  p-2 mt-10  w-auto b text-center  bg-orange-500 text-white  rounded-xl    hover:scale-110 ease-in duration-300'>Place Order</button>}
+             {accountDetails?.loggedInuser&&cartItems.length!=0 &&<button onClick={handleplaceorder} className='text-lg  p-2 mt-10  w-auto b text-center  bg-orange-500 text-white  rounded-xl    hover:scale-110 ease-in duration-300'>Place Order</button>}
 
 
             </div>

@@ -13,17 +13,21 @@ const Login = () => {
   const [pswrd,setPswrd]=useState('')
 
   useEffect(()=>{
-    if(accountDetails.loggedInuser!=null){
-      if(accountDetails?.loggedInuser){
-        alert(`Welcome ${accountDetails?.name}`)
-        localStorage.setItem("customer",JSON.stringify(accountDetails))
-        navigate('/cart')
-
-       }
-       else{
-        alert("invalid email or pswrd")
-       }
-    }
+    
+   
+      if(accountDetails?.loggedInuser!=null){
+        if(accountDetails?.loggedInuser){
+          alert(`Welcome ${accountDetails?.name}`)
+          localStorage.setItem("customer",JSON.stringify(accountDetails))
+          navigate('/cart')
+  
+         }
+         else{
+          alert("invalid email or pswrd")
+         }
+      }
+    
+    
     
   },[accountDetails])
 
@@ -32,7 +36,7 @@ const Login = () => {
     const data={email:email,password:pswrd}
     
     dispatch(verifyUser(data))
-   console.log(accountDetails)
+  //  console.log(accountDetails)
   
    
     
