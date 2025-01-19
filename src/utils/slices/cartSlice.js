@@ -9,10 +9,13 @@ const  cartSlice =createSlice({
     },
     reducers:{
         addItem:(state,action)=>{
+
             const payload=action.payload
            const chk= state.items.every((item)=> payload.id!=item.id)
            if(chk){
-            state.items.push(payload)
+            // state.items.push(payload)
+            state.items=[...state.items,payload]
+            // return state.items
            }
         },
         clearAll:(state)=>{
@@ -29,6 +32,7 @@ const  cartSlice =createSlice({
                 if(payload==item.id  && item.quantity>=1)
                 {
                     item.quantity=item.quantity+1;
+                    item.totalPrice=item.price*item.quantity
                     return item
                 }
                 else{
@@ -43,6 +47,8 @@ const  cartSlice =createSlice({
                 if(payload==item.id && item.quantity>1)
                 {
                       item.quantity=item.quantity-1
+                      item.totalPrice=item.price*item.quantity
+
                      return item
                 }
                 else{

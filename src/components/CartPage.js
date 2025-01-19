@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {  useDispatch, useSelector } from 'react-redux'
 import Item from './Item'
 import {clearAll} from '../utils/slices/cartSlice'
 import Cart from './Cart'
 import { Link } from 'react-router-dom'
 const CartPage = () => {
-    
+    const [account,setAccount]=useState();
     const cartItems=useSelector(store=>store.cart.items)
-    const userInfo=useSelector(store=>store.user.info)
+    let accountDetails=useSelector(store=>store.user.accountDetails)
     const dispatch=useDispatch()
+    useEffect(()=>{
+         setAccount(JSON.parse(localStorage.getItem("customer")))
+    },[accountDetails])
     const handleClear=()=>{
         dispatch(clearAll())
     }
@@ -46,16 +49,18 @@ const CartPage = () => {
             </div>}
             <div className='h-auto m-2 flex flex-col text-lg w-11/12 p-5'>
                 <div className='underline text-lg font-semibold m-2'>Account Details</div>
-               {userInfo.map((user)=>(
-                <div key={user.mobile} className='flex flex-wrap flex-col'>
-                        <span className='font-semibold'>{user.name}</span>
-                        <span className='font-semibold text-neutral-400'>{user.email}</span>
-                        <span className='font-semibold text-neutral-400'>{user.mobile}</span>
-                        <span className='font-semibold'>{user.address}</span>
+               {account?.loggedInuser ?
+            
+               <div  className='flex flex-wrap flex-col'>
+                        <span className='font-semibold'>{account?.name}</span>
+                        <span className='font-semibold text-neutral-400'>{account?.email}</span>
+                        <span className='font-semibold text-neutral-400'>{account?.contact}</span>
+                        <span className='font-semibold'>{account?.deliveryAddress}</span>
                 </div>
-               )) }
-                        <button className='text-lg  p-2 mt-10  w-auto b text-center  bg-orange-500 text-white  rounded-xl    hover:scale-110 ease-in duration-300'>Place Order</button>
-
+               : 
+             <span>Log In to Place your order<Link to='/login' className='text-lg ml-2 text-red-400 font-semibold'>login</Link></span>
+             }
+             {accountDetails?.loggedInuser&&<button className='text-lg  p-2 mt-10  w-auto b text-center  bg-orange-500 text-white  rounded-xl    hover:scale-110 ease-in duration-300'>Place Order</button>}
 
 
             </div>

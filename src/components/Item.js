@@ -12,11 +12,12 @@ const Item = ({item}) => {
     const payload={
       id:data.id,
       name:data.name,
-      price:data.price,
+      price:data.price/100,
       category:data.category,
       imageId:data.imageId,
       attribute:data.itemAttribute.vegClassifier,
-      quantity:1
+      quantity:1,
+      totalPrice:data.price/100
     }
     if(added){
       setadded(false)

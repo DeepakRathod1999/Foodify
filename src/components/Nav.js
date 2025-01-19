@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useState ,useEffect} from "react";
 import  "../css/nav.css";
 import loginlogo from "../utils/loginlogo.svg";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
+import { signout } from "../utils/slices/userSlice";
+import { useNavigate } from "react-router-dom";
 export const Nav = () => {
+
+ const accountDetails=useSelector(store=>store.user.accountDetails)
  const {status,onlineStatus}= useOnlineStatus();
  const cartItems=useSelector((store)=>store.cart.items)
+ const navigate=useNavigate()
+ const dispatch=useDispatch();
+
+ useEffect(()=>{
+  localStorage.setItem("customer",JSON.stringify(accountDetails))
+
+ },[accountDetails])
+const handleSignOut=()=>{
+  dispatch(signout())
+  navigate('/login')
+}
   return (
   
       <div className="  font-poppins flex p-2 justify-between border-gray-200 border-b-2  bg-slate-800 fixed top-0  left-0 right-0 z-50   ">
@@ -22,7 +37,7 @@ export const Nav = () => {
             <li className="hover:scale-110 ease-in duration-300"><Link to="/contact" >ContactUs</Link></li>
             <li className="hover:scale-110 ease-in duration-300"><Link to='/grocery'>Grocery</Link></li>
             <li className="hover:scale-110 ease-in duration-300"><Link to='/cart'><span className="mx-4 text-black relative">{cartItems?.length}</span><svg xmlns="http://www.w3.org/2000/svg" className=" -mt-7 h-10 w-10" viewBox="0 0 576 512"><path fill="#fafafa" d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg></Link></li>
-            <li className="hover:scale-110 ease-in duration-300"><Link to='/login'>login</Link></li> 
+            <li className="hover:scale-110 ease-in duration-300"> {accountDetails?.loggedInuser?<button onClick={handleSignOut}>SignOut</button>:<Link to='/login'>login</Link>}</li> 
         </ul>
        </div>
         
